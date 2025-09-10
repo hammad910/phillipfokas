@@ -1,0 +1,23 @@
+.section { background: var(--color-bg); padding: 80px 24px 120px; }
+
+.container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center; }
+
+.badge { color: #8b8b98; letter-spacing: 0.28em; font-size: 14px; margin-bottom: 14px; }
+.title { margin: 0 0 16px; color: #f5f5fa; font-weight: 800; font-size: 44px; letter-spacing: -0.02em; }
+.lede { color: #c9c9d6; font-size: 18px; line-height: 1.7; max-width: 520px; }
+
+.cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 24px; height: 56px; padding: 0 24px; border-radius: 30px; color: #fff; text-decoration: none; background: rgba(255,255,255,0.02); border: 1.5px solid rgba(169,169,179,0.35); }
+
+.grid { display: none; }
+.icon { display: none; }
+
+.videoWrap { position: relative; }
+.video { width: 100%; max-width: 760px; aspect-ratio: 16/9; background: #111016; border: 1px solid rgba(162,113,255,0.25); border-radius: 20px; display: block; }
+
+.left {}
+.right {}
+
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(4, 96px); } .icon { width:96px; height:96px; } }
+@media (max-width: 900px) { .container { grid-template-columns: 1fr; } .grid { justify-content: start; } }
+
+

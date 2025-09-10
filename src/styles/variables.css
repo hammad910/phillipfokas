@@ -1,0 +1,15 @@
+:root {
+  --color-bg: #131219;
+  --color-text: #eaeaf0;
+  --color-muted: #a9a9b3;
+  --gradient-start: #6b7cff;
+  --gradient-mid: #a271ff;
+  --gradient-end: #ff7aa2;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+

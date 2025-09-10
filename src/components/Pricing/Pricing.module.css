@@ -1,0 +1,28 @@
+.section { background: var(--color-bg); padding: 80px 24px 120px; }
+
+.container { max-width: 1200px; margin: 0 auto; text-align: center; }
+.heading { margin: 0; color: #eaf7ff; font-weight: 800; font-size: 36px; letter-spacing: -0.01em; }
+.subheading { color: #c9c9d6; margin-top: 8px; font-size: 16px; }
+
+.grid { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.card { background: #14131a; border: 1px solid rgba(162,113,255,0.25); border-radius: 16px; padding: 24px; text-align: left; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+.featured { box-shadow: 0 0 0 2px rgba(162,113,255,0.6), 0 20px 60px rgba(0,0,0,0.45); }
+
+.planName { text-align: center; color: #f5f5fa; font-weight: 700; font-size: 20px; margin-bottom: 8px; }
+.save { text-align: center; margin: 0 auto 12px; padding: 6px 10px; border-radius: 14px; background: rgba(162,113,255,0.16); color: #e7dcff; font-size: 14px; }
+.crossed { text-align: center; color: #8f8f9b; text-decoration: line-through; margin-top: 6px; }
+.today { text-align: center; color: #7ee2ff; font-size: 20px; font-weight: 800; margin-top: 6px; }
+.due { text-align: center; color: #c9c9d6; margin-top: 6px; }
+.total { text-align: center; color: #7de6a1; margin-top: 4px; font-weight: 700; }
+
+.features { margin: 16px 0 18px; padding: 0; list-style: none; display: grid; gap: 10px; color: #d7d7e3; }
+.features li { display: flex; align-items: center; gap: 8px; }
+.tick { color: #7de6a1; }
+
+.cta { display: block; text-align: center; height: 52px; line-height: 52px; border-radius: 28px; color: #fff; text-decoration: none; background: rgba(255,255,255,0.02); border: 1.5px solid rgba(169,169,179,0.35); font-weight: 700; }
+.ctaPrimary { background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end)); border: none; }
+
+@media (max-width: 1024px) { .grid { grid-template-columns: 1fr; } }
+
+

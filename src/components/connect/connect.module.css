@@ -1,0 +1,84 @@
+.gridWrapper {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  
+  .cardHeading {
+    color: #f5f5fa;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .cardSub {
+    color: #c9c9d6;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .socialLinks {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .socialBtn {
+    display: block;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(169,169,179,0.35);
+    padding: 12px;
+    border-radius: 10px;
+    color: #eaf7ff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .socialBtn:hover {
+    background: rgba(162,113,255,0.15);
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: #d7d7e3;
+    text-align: center;
+  }
+  .stats strong {
+    display: block;
+    font-size: 18px;
+    color: #7ee2ff;
+  }
+  
+  .form {
+    display: grid;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .form input {
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(169,169,179,0.35);
+    background: #14131a;
+    color: #f5f5fa;
+    font-size: 14px;
+  }
+  .form input:focus {
+    outline: none;
+    border-color: rgba(162,113,255,0.6);
+  }
+  
+  .privacy {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #8f8f9b;
+  }
+  
+  @media (max-width: 1024px) {
+    .gridWrapper {
+      grid-template-columns: 1fr;
+    }
+  }
+  
