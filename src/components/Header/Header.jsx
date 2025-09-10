@@ -1,56 +1,77 @@
 import React from 'react';
 import styles from './Header.module.css';
-
-const ChevronDown = () => (
-  <svg className={styles.chevron} width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-const LogoMark = () => (
-  <svg className={styles.logoMark} width="28" height="28" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <defs>
-      <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#7C5CFF" />
-        <stop offset="50%" stopColor="#9B5CFF" />
-        <stop offset="100%" stopColor="#FF5C89" />
-      </linearGradient>
-    </defs>
-    <path fill="url(#g)" d="M10 4c-1.657 0-3 1.343-3 3v2c0 1.657-1.343 3-3 3h-2v2h2c1.657 0 3 1.343 3 3v2c0 1.657 1.343 3 3 3h2v-2h-2c-1.105 0-2-.895-2-2v-2c0-1.967-1.138-3.663-2.792-4.47C8.862 12.263 10 10.567 10 8.6v-2c0-1.105.895-2 2-2h2V4h-2zM22 4h-2v2h2c1.105 0 2 .895 2 2v2c0 1.967 1.138 3.663 2.792 4.47C25.138 17.737 24 19.433 24 21.4v2c0 1.105-.895 2-2 2h-2v2h2c1.657 0 3-1.343 3-3v-2c0-1.657 1.343-3 3-3h2v-2h-2c-1.657 0-3-1.343-3-3v-2c0-1.657-1.343-3-3-3z" />
-  </svg>
-);
+import { FaInstagram } from "react-icons/fa6";
+import { FaFacebookF, FaTiktok } from "react-icons/fa";
 
 const Header = () => {
   return (
     <div className={styles.headerRoot}>
-      <div className={styles.topGradient} />
+      {/* Top Progress Bar */}
+      <div className={styles.topBar}>
+        <div className={styles.progressSection}>
+          <span className={styles.progressText}>0/800 GOAL PROGRESS</span>
+          <div className={styles.progressBar}>
+            <div className={styles.progressFill} style={{ width: '0%' }}></div>
+          </div>
+          <span className={styles.progressPercent}>0.0%</span>
+        </div>
+        <div className={styles.metrics}>
+          <span className={styles.metric}>Viral Coefficient: 0x</span>
+          <span className={styles.metric}>Conversion: 0%</span>
+        </div>
+      </div>
+
+      {/* Promotional Banner */}
+      <div className={styles.banner}>
+        <div className={styles.bannerContent}>
+          <span className={styles.bannerText}>✨🚀 GOING LIVE AUG 31ST - 7 DAYS LEFT! ✨</span>
+          <div className={styles.bannerButtons}>
+            <div className={styles.timeButton}>
+              <span className={styles.timeIcon}>🕐</span>
+              <span className={styles.fireIcon}>🔥</span>
+              <span>ONLY 168H LEFT</span>
+            </div>
+            <div className={styles.joinButton}>
+              <span className={styles.peopleIcon}>👥</span>
+              <span>0+ JOINED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header */}
       <header className={styles.header}>
         <div className={styles.left}>
-          <LogoMark />
-          <span className={styles.brand}>Enterpret</span>
+          <div className={styles.logoContainer}>
+            <img src="/logo.png" alt="AI SHOP CLONE" className={styles.logo} />
+          </div>
+          <div className={styles.brandInfo}>
+            <h1 className={styles.brandName}>AI SHOP CLONE</h1>
+            <p className={styles.tagline}>YOUR MIND YOUR CREATION</p>
+          </div>
         </div>
-        <nav className={styles.nav} aria-label="Primary">
-          <button className={styles.navItem} type="button">
-            <span>Product</span>
-            <ChevronDown />
-          </button>
-          <button className={styles.navItem} type="button">
-            <span>Customers</span>
-            <ChevronDown />
-          </button>
-          <button className={styles.navItem} type="button">
-            <span>Solutions</span>
-            <ChevronDown />
-          </button>
-          <button className={styles.navItem} type="button">
-            <span>Resources</span>
-            <ChevronDown />
-          </button>
-          <a className={`${styles.navItem} ${styles.link}`} href="#pricing">Pricing</a>
+
+        <nav className={styles.nav}>
+          <a href="#features" className={styles.navLink}>Features</a>
+          <a href="#pricing" className={styles.navLink}>Pricing</a>
+          <a href="#connect" className={styles.navLink}>Connect</a>
         </nav>
+
+        <div className={styles.social}>
+          <a href="https://www.facebook.com/AiShopClone?rdid=AsiDn4jAlkXczN1h&share_url=https%253A%252F%252Fwww.facebook.com%252Fshare%252F174wuyBoSF%252F#" target="_blank" className={styles.socialLink}>
+            <span className={styles.facebookIcon}><FaFacebookF /></span>
+          </a>
+          <a href="https://www.instagram.com/aishopclone/?igsh=aXl5anp1b3R2aWlm#" target="_blank" className={styles.socialLink}>
+            <span className={styles.instagramIcon}><FaInstagram /></span>
+          </a>
+          <a href="http://tiktok.com/@aishopclone?_t=ZS-8z5vuOnSphX&_r=1" target="_blank" className={styles.socialLink}>
+            <span className={styles.tiktokIcon}><FaTiktok /></span>
+          </a>
+        </div>
+
         <div className={styles.right}>
-          <a className={`${styles.link} ${styles.signIn}`} href="#signin">Sign In</a>
-          <a className={styles.cta} href="#book-demo">Book a Demo</a>
+          <a href="/signup" className={styles.signInLink}>Sign In</a>
+          <a href="/signin" className={styles.getStartedBtn}>Get Started</a>
         </div>
       </header>
     </div>

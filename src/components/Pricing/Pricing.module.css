@@ -23,6 +23,127 @@
 .cta { display: block; text-align: center; height: 52px; line-height: 52px; border-radius: 28px; color: #fff; text-decoration: none; background: rgba(255,255,255,0.02); border: 1.5px solid rgba(169,169,179,0.35); font-weight: 700; }
 .ctaPrimary { background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end)); border: none; }
 
-@media (max-width: 1024px) { .grid { grid-template-columns: 1fr; } }
+@media (max-width: 1200px) {
+  .section {
+    padding: 60px 20px 80px;
+  }
+  
+  .grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 600px;
+    margin: 28px auto 0;
+  }
+  
+  .heading {
+    font-size: 32px;
+  }
+  
+  .subheading {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 40px 16px 60px;
+  }
+  
+  .heading {
+    font-size: 28px;
+  }
+  
+  .subheading {
+    font-size: 14px;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .planName {
+    font-size: 18px;
+  }
+  
+  .save {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+  
+  .today {
+    font-size: 18px;
+  }
+  
+  .features {
+    gap: 8px;
+  }
+  
+  .features li {
+    font-size: 13px;
+  }
+  
+  .cta {
+    height: 48px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 30px 12px 40px;
+  }
+  
+  .heading {
+    font-size: 24px;
+  }
+  
+  .subheading {
+    font-size: 13px;
+  }
+  
+  .card {
+    padding: 16px;
+  }
+  
+  .planName {
+    font-size: 16px;
+  }
+  
+  .save {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  
+  .today {
+    font-size: 16px;
+  }
+  
+  .due {
+    font-size: 13px;
+  }
+  
+  .total {
+    font-size: 14px;
+  }
+  
+  .features {
+    gap: 6px;
+  }
+  
+  .features li {
+    font-size: 12px;
+  }
+  
+  .cta {
+    height: 44px;
+    font-size: 13px;
+  }
+}
 
 

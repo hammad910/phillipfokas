@@ -11,111 +11,427 @@
   background-color: var(--bg);
 }
 
-.topGradient {
-  height: 3px;
-  background: linear-gradient(90deg, var(--ring-start), var(--ring-mid), var(--ring-end));
+/* Top Progress Bar */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 32px;
+  background: linear-gradient(90deg, #2a1a3a, #1a2a3a);
+  border-bottom: 1px solid rgba(162,113,255,0.2);
 }
 
+.progressSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progressText {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.progressBar {
+  width: 120px;
+  height: 6px;
+  background: rgba(162,113,255,0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ring-start), var(--ring-end));
+  transition: width 0.3s ease;
+}
+
+.progressPercent {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.metrics {
+  display: flex;
+  gap: 16px;
+}
+
+.metric {
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Promotional Banner */
+.banner {
+  background: linear-gradient(90deg, #ff7aa2, #7a86ff);
+  padding: 12px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bannerContent {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bannerText {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+}
+
+.bannerButtons {
+  display: flex;
+  gap: 12px;
+}
+
+.timeButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.joinButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Main Header */
 .header {
-  height: 72px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 32px;
-  color: var(--text);
+  background: transparent;
 }
 
 .left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
-.logoMark {
-  display: block;
+.logoContainer {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ring-start), var(--ring-end));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
 }
 
-.brand {
-  font-weight: 600;
-  font-size: 22px;
-  letter-spacing: 0.2px;
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.brandInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandName {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
 }
 
-.navItem {
-  display: inline-flex;
+.navLink {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.navLink:hover {
+  color: #fff;
+}
+
+.social {
+  display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--text);
-  background: transparent;
-  border: 0;
-  padding: 8px 0;
-  font-size: 16px;
-  cursor: pointer;
 }
 
-.navItem:hover {
-  color: #ffffff;
-}
-
-.link {
+.socialLink {
+  width: 36px;
+  height: 36px;
+  background: #1b1822;
+  border: 1px solid rgba(162,113,255,0.25);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  transition: all 0.2s;
 }
 
-.chevron {
-  color: var(--muted);
+.socialLink:hover {
+  border-color: rgba(162,113,255,0.5);
+  background: #1f1c2a;
+}
+
+.facebookIcon {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.instagramIcon {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.tiktokIcon {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
 }
 
 .right {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
 }
 
-.signIn {
+.signInLink {
   color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
 }
 
-.cta {
-  position: relative;
+.signInLink:hover {
+  color: #fff;
+}
+
+.getStartedBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
-  padding: 0 22px;
-  border-radius: 28px;
-  color: #ffffff;
+  height: 44px;
+  padding: 0 20px;
+  background: linear-gradient(90deg, var(--ring-start), var(--ring-end));
+  border-radius: 22px;
+  color: #fff;
   text-decoration: none;
   font-weight: 700;
-  background: radial-gradient(120% 120% at 0% 0%, rgba(107,124,255,0.15), rgba(255,122,162,0.15));
+  font-size: 14px;
+  transition: all 0.2s;
 }
 
-.cta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 28px;
-  padding: 1px;
-  background: linear-gradient(90deg, var(--ring-start), var(--ring-mid), var(--ring-end));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
+.getStartedBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(162,113,255,0.3);
 }
 
-.cta:hover {
-  box-shadow: 0 0 0 4px rgba(162,113,255,0.2);
+@media (max-width: 1200px) {
+  .header {
+    padding: 0 24px;
+  }
+  
+  .topBar {
+    padding: 8px 24px;
+  }
+  
+  .banner {
+    padding: 12px 24px;
+  }
 }
 
 @media (max-width: 1024px) {
   .nav {
     display: none;
+  }
+  
+  .social {
+    display: none;
+  }
+  
+  .bannerContent {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .bannerButtons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .progressSection {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  
+  .metrics {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topBar {
+    padding: 8px 16px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .header {
+    padding: 0 16px;
+    height: auto;
+    min-height: 80px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .banner {
+    padding: 12px 16px;
+  }
+  
+  .bannerText {
+    font-size: 14px;
+  }
+  
+  .brandName {
+    font-size: 18px;
+  }
+  
+  .tagline {
+    font-size: 11px;
+  }
+  
+  .left {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .right {
+    flex: 1;
+    justify-content: flex-end;
+  }
+  
+  .getStartedBtn {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+  
+  .signInLink {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topBar {
+    padding: 6px 12px;
+  }
+  
+  .header {
+    padding: 0 12px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .banner {
+    padding: 8px 12px;
+  }
+  
+  .bannerText {
+    font-size: 12px;
+  }
+  
+  .left {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .brandInfo {
+    text-align: center;
+  }
+  
+  .brandName {
+    font-size: 16px;
+  }
+  
+  .tagline {
+    font-size: 10px;
+  }
+  
+  .right {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .getStartedBtn {
+    width: 100%;
+    height: 44px;
+  }
+  
+  .signInLink {
+    font-size: 16px;
+  }
+  
+  .logoContainer {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .logo {
+    width: 52px;
+    height: 52px;
   }
 }
 

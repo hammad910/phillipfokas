@@ -21,10 +21,124 @@
 .personText strong { font-weight: 700; }
 .personText span { color: #a9a9b3; font-size: 14px; }
 
+@media (max-width: 1200px) {
+  .section {
+    padding: 50px 20px 60px;
+  }
+  
+  .container {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 44px 1fr 44px;
+    gap: 32px;
+  }
+  
+  .nav {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .nav span {
+    font-size: 24px;
+  }
+  
+  .bigQuote {
+    font-size: 180px;
+    top: -28px;
+  }
+  
+  .quote {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 768px) {
-  .container { grid-template-columns: 44px 1fr 44px; }
-  .nav { width: 44px; height: 44px; }
-  .bigQuote { font-size: 200px; top: -32px; }
+  .section {
+    padding: 40px 16px 50px;
+  }
+  
+  .container {
+    grid-template-columns: 36px 1fr 36px;
+    gap: 24px;
+  }
+  
+  .nav {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .nav span {
+    font-size: 20px;
+  }
+  
+  .bigQuote {
+    font-size: 140px;
+    top: -24px;
+  }
+  
+  .quote {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  
+  .personRow {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .avatar {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 30px 12px 40px;
+  }
+  
+  .container {
+    grid-template-columns: 32px 1fr 32px;
+    gap: 16px;
+  }
+  
+  .nav {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .nav span {
+    font-size: 18px;
+  }
+  
+  .bigQuote {
+    font-size: 100px;
+    top: -20px;
+  }
+  
+  .quote {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .personRow {
+    gap: 6px;
+  }
+  
+  .avatar {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .company {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
 }
 
 
