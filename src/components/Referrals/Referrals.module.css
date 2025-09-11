@@ -1,0 +1,137 @@
+.sharesection {
+  background-color: var(--color-bg);
+  padding: 80px 24px 120px;
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  border: 2px solid rgba(162, 113, 255, 0.35); /* purple accent with transparency */
+  box-shadow: 0 0 20px rgba(162, 113, 255, 0.15); /* subtle glow */
+}
+
+.shareheading {
+  font-size: 28px;
+  font-weight: 800;
+  color: #f5f5fa;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.sharesubtext {
+  color: #bdbdcc;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.highlight {
+  color: #a271ff; /* project accent purple */
+  font-weight: 700;
+}
+
+/* Buttons Row */
+.sharebuttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.btn {
+  padding: 14px 22px;
+  border-radius: 34px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1.5px solid rgba(169, 169, 179, 0.35);
+  background: rgba(255, 255, 255, 0.02);
+  color: #f5f5fa;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: rgba(162, 113, 255, 0.15);
+  transform: scale(1.05);
+}
+
+/* Specific platform colors (subtle tint, not harsh brand colors) */
+.fb {
+  border-color: #1877f2;
+}
+.tw {
+  border-color: #1da1f2;
+}
+.li {
+  border-color: #0a66c2;
+}
+.wa {
+  border-color: #25d366;
+}
+
+/* Referral text */
+.referraltext {
+  color: #d7d7e3;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+/* Input + Button */
+.referralinputwrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.referralinput {
+  padding: 18px 22px; /* bigger padding for height */
+  border-radius: 34px;
+  border: 2px solid rgba(162, 113, 255, 0.5); /* purple accent border */
+  background: rgba(255, 255, 255, 0.02);
+  color: #f5f5fa;
+  min-width: 340px; /* wider */
+  font-size: 16px; /* bigger text */
+}
+
+.referralinput::placeholder {
+  color: #8b8b98;
+}
+
+.referralinput:focus {
+  outline: none;
+  border-color: #a271ff; /* solid purple focus */
+  box-shadow: 0 0 8px rgba(162, 113, 255, 0.6);
+}
+
+.btncode {
+  background: linear-gradient(90deg, #a271ff, #6b4dff);
+  border: none;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 34px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.btncode:hover {
+  opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .shareheading {
+    font-size: 24px;
+  }
+  .sharesubtext {
+    font-size: 16px;
+  }
+  .btn,
+  .referralinput,
+  .btncode {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+}

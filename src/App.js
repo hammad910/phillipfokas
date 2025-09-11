@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Aggregate from './components/Aggregate/Aggregate';
+import Referrals from './components/Referrals/Referrals';
 import Copilot from './components/Copilot/Copilot';
 import Testimonials from './components/Testimonials/Testimonials';
 import Pricing from './components/Pricing/Pricing';
@@ -27,6 +28,7 @@ function App() {
             <Header />
             <Hero />
             <Aggregate />
+            <Referrals />
             <Copilot />
             {/* <Testimonials /> */}
             <Pricing />

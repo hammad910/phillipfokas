@@ -21,15 +21,13 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // ✅ Simple validation: check empty fields
     for (let key in formData) {
       if (!formData[key]) {
         alert(`Please fill in your ${key}`);
-        return; // stop here, don't redirect
+        return;
       }
     }
 
-    // ✅ Extra check: password match
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
       return;
@@ -45,7 +43,7 @@ const Signup = () => {
       const data = await res.json();
 
       if (data.success) {
-        navigate("/"); // ✅ redirect only if success
+        navigate("/");
       }
     } catch (error) {
       console.error(error);
@@ -142,7 +140,6 @@ const Signup = () => {
           />
         </div>
 
-        {/* ✅ No Link here */}
         <button type="submit" className={styles.signInBtn}>
           Sign Up <span className={styles.arrow}>→</span>
         </button>
