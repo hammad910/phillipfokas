@@ -17,7 +17,6 @@ const Aggregate = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.left}> 
-          <Badge>AGGREGATE</Badge>
           <h2 className={styles.title}>BUILD. LAUNCH. SCALE.</h2>
           <p className={styles.lede}>Turn your business vision into a thriving online store with AI-driven solutions. From setup to sales, everything is automated.</p>
 
@@ -26,7 +25,7 @@ const Aggregate = () => {
 
         <div className={styles.right}>
           <div className={styles.videoWrap}>
-            <video className={styles.video} style={{height: '600px', width: '400px'}} src="/video-3.mp4" controls playsInline preload="metadata" />
+            <video className={styles.video} style={{height: '600px', width: '400px'}} src="/video-5.mp4" controls playsInline preload="metadata" />
           </div>
         </div>
       </div>
