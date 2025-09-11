@@ -7,10 +7,12 @@ import Copilot from './components/Copilot/Copilot';
 import Testimonials from './components/Testimonials/Testimonials';
 import Pricing from './components/Pricing/Pricing';
 import Integrations from './components/Integrations/Integrations';
-import Connect from './components/Connect/Connect';
+import Connect from './components/connect/connect';
 import CTA from './components/CTA/CTA';
 import Signup from './components/Signup/Signup';
 import Signin from './components/Signin/Signin';
+import Success from './components/success/Success';
+import Failed from './components/failed/Failed';
 
 function App() {
   return (
@@ -18,13 +20,15 @@ function App() {
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Failed />} />
         <Route path="/" element={
           <div className="App">
             <Header />
             <Hero />
             <Aggregate />
             <Copilot />
-            <Testimonials />
+            {/* <Testimonials /> */}
             <Pricing />
             <Integrations />
             <Connect />

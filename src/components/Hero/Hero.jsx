@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Hero.module.css';
+import { handleCheckout } from '../../utils/checkout';
 
 const Hero = () => {
   return (
@@ -14,7 +15,7 @@ const Hero = () => {
         Transform your ideas into profitable online stores with AI-powered automation. Generate, deploy, and scale your e-commerce empire in minutes, not months.
         </p>
         <div className={styles.actions}>
-          <a href="#book-demo" className={`${styles.btn} ${styles.primary}`}>Reserve Your Spot - $79</a>
+          <a onClick={handleCheckout} href="#book-demo" className={`${styles.btn} ${styles.primary}`}>Reserve Your Spot - $79</a>
         </div>
       </div>
     </section>

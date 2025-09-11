@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './CTA.module.css';
+import { handleCheckout } from '../../utils/checkout';
 
 const CTA = () => {
   return (
@@ -8,7 +9,7 @@ const CTA = () => {
       <div className={styles.container}>
         <h2 className={styles.title}>Ready to Build Your Empire?</h2>
         <p className={styles.subtitle}>Join thousands of entrepreneurs who've transformed their lives with AI-powered e-commerce.</p>
-        <a href="#start" className={styles.button}>
+        <a onClick={handleCheckout} href="#start" className={styles.button}>
           <span className={styles.icon}>⚡</span>
           Start Building Now - $79
         </a>

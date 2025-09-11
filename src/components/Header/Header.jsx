@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Header.module.css';
 import { FaInstagram } from "react-icons/fa6";
 import { FaFacebookF, FaTiktok } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -70,8 +71,8 @@ const Header = () => {
         </div>
 
         <div className={styles.right}>
-          <a href="/signup" className={styles.signInLink}>Sign In</a>
-          <a href="/signin" className={styles.getStartedBtn}>Get Started</a>
+          <Link to="/signup" className={styles.signInLink}>Sign Up</Link>
+          <Link to="/signin" className={styles.getStartedBtn}>Get Started</Link>
         </div>
       </header>
     </div>

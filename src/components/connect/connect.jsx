@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import styles from './Connect.module.css';
+import styles from './connect.module.css';
 import { FaInstagram } from "react-icons/fa6";
 import { FaFacebookF, FaTiktok } from "react-icons/fa";
 const Connect = () => {
     const [email, setEmail] = useState("");
     // const [status, setStatus] = useState("");
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+          e.preventDefault();
         const res = await fetch("http://localhost:5000/subscribe", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

@@ -10,10 +10,9 @@ const Integrations = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.left}>
-          <div className={styles.badge}>INTEGRATIONS</div>
-          <h2 className={styles.title}>Integrate with all feedback channels</h2>
-          <p className={styles.lede}>Enterpret connects to your existing channels, and more with our CSV importer and API.</p>
-          <a href="#integrations" className={styles.cta}>Integrations</a>
+          <h2 className={styles.title}>DREAM → STORE → SUCCESS</h2>
+          <p className={styles.lede}>Build your eCommerce brand in record time. No coding, no stress—just results with AI at your side.</p>
+          <a className={styles.cta}>99% Launch Success</a>
         </div>
 
         <div className={styles.right}>
