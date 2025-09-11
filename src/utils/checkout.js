@@ -6,7 +6,7 @@ const stripePromise = loadStripe(
 
 export const handleCheckout = async () => {
   try {
-    const res = await fetch("http://localhost:5000/create-checkout-session", {
+    const res = await fetch("https://phillipfokas-backend.onrender.com/create-checkout-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });
