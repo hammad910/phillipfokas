@@ -34,16 +34,47 @@ const Signup = () => {
     }
 
     try {
+      const generateRandomCustomerId = () => {
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        let id = "#";
+        for (let i = 0; i < 10; i++) {
+          id += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return id;
+      };
+      const customerId = generateRandomCustomerId();
       const res = await fetch("http://localhost:5000/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, UID: customerId }),
       });
 
       const data = await res.json();
 
-      if (data.success) {
+      const userPayload = {
+        name: formData.fullName,
+        country: formData.country,
+        phone: formData.phone,
+        email: formData.email,
+        password: formData.password,
+        uid: customerId,
+      };
+
+      const userRes = await fetch("http://localhost:8000/api/sign", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json", // prevents redirect to /login
+        },
+        body: JSON.stringify(userPayload),
+      });
+
+      const userData = await userRes.json();
+
+      if (userData.success) {
         navigate("/");
+      } else {
+        alert(userData.message || "Signup failed.");
       }
     } catch (error) {
       console.error(error);
