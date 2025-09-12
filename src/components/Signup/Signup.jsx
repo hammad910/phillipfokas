@@ -49,8 +49,6 @@ const Signup = () => {
         body: JSON.stringify({ ...formData, UID: customerId }),
       });
 
-      const data = await res.json();
-
       const userPayload = {
         name: formData.fullName,
         country: formData.country,
@@ -59,6 +57,11 @@ const Signup = () => {
         password: formData.password,
         uid: customerId,
       };
+
+      const code = localStorage.getItem("referralCode");
+      if (code) {
+        userPayload.referral_code = code;
+      }
 
       const userRes = await fetch("http://localhost:8000/api/sign", {
         method: "POST",
@@ -72,6 +75,7 @@ const Signup = () => {
       const userData = await userRes.json();
 
       if (userData.success) {
+        localStorage.setItem("uid", customerId);
         navigate("/");
       } else {
         alert(userData.message || "Signup failed.");

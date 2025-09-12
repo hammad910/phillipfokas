@@ -18,7 +18,7 @@
   align-items: center;
   padding: 8px 32px;
   background: linear-gradient(90deg, #2a1a3a, #1a2a3a);
-  border-bottom: 1px solid rgba(162,113,255,0.2);
+  border-bottom: 1px solid rgba(162, 113, 255, 0.2);
 }
 
 .progressSection {
@@ -36,7 +36,7 @@
 .progressBar {
   width: 120px;
   height: 6px;
-  background: rgba(162,113,255,0.2);
+  background: rgba(162, 113, 255, 0.2);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -98,8 +98,8 @@
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: rgba(255,255,255,0.2);
-  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   color: #fff;
   font-size: 12px;
@@ -111,8 +111,8 @@
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   color: #fff;
   font-size: 12px;
@@ -203,7 +203,7 @@
   width: 36px;
   height: 36px;
   background: #1b1822;
-  border: 1px solid rgba(162,113,255,0.25);
+  border: 1px solid rgba(162, 113, 255, 0.25);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -213,7 +213,7 @@
 }
 
 .socialLink:hover {
-  border-color: rgba(162,113,255,0.5);
+  border-color: rgba(162, 113, 255, 0.5);
   background: #1f1c2a;
 }
 
@@ -269,7 +269,7 @@
 
 .getStartedBtn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 25px rgba(162,113,255,0.3);
+  box-shadow: 0 8px 25px rgba(162, 113, 255, 0.3);
 }
 
 /* Search Button */
@@ -278,7 +278,7 @@
   align-items: center;
   gap: 6px;
   background: #1b1822;
-  border: 1px solid rgba(162,113,255,0.25);
+  border: 1px solid rgba(162, 113, 255, 0.25);
   border-radius: 8px;
   padding: 8px 12px;
   color: var(--text);
@@ -289,7 +289,7 @@
 }
 
 .searchBtn:hover {
-  border-color: rgba(162,113,255,0.5);
+  border-color: rgba(162, 113, 255, 0.5);
   background: #1f1c2a;
   color: #fff;
 }
@@ -316,6 +316,22 @@
   font-weight: bold;
 }
 
+.successBox {
+  width: 30%;
+  margin-top: 1rem;
+  margin-left: 2%;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  border-radius: 8px;
+  background-color: transparent; /* light green */
+  border: 1px solid green; /* darker green */
+  color: #ddd; /* text green */
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.successBox strong {
+  color: #0c6b36;
+}
 
 /* Modal Overlay */
 .modalOverlay {
@@ -334,13 +350,13 @@
 /* Modal Box */
 .modal {
   background: #1b1822;
-  border: 1px solid rgba(162,113,255,0.25);
+  border: 1px solid rgba(162, 113, 255, 0.25);
   border-radius: 12px;
   padding: 24px;
-  width: 320px;
+  width: 620px;
   max-width: 90%;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
 }
 
 .modal h2 {
@@ -355,7 +371,7 @@
   width: 100%;
   padding: 10px 12px;
   margin-bottom: 16px;
-  border: 1px solid rgba(162,113,255,0.25);
+  border: 1px solid rgba(162, 113, 255, 0.25);
   border-radius: 8px;
   background: #131219;
   color: var(--text);
@@ -389,13 +405,13 @@
 
 .submitBtn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(162,113,255,0.4);
+  box-shadow: 0 8px 20px rgba(162, 113, 255, 0.4);
 }
 
 .cancelBtn {
   flex: 1;
   background: #2a1a3a;
-  border: 1px solid rgba(162,113,255,0.25);
+  border: 1px solid rgba(162, 113, 255, 0.25);
   color: var(--text);
   padding: 10px 14px;
   border-radius: 8px;
@@ -411,17 +427,15 @@
   color: #fff;
 }
 
-
-
 @media (max-width: 1200px) {
   .header {
     padding: 0 24px;
   }
-  
+
   .topBar {
     padding: 8px 24px;
   }
-  
+
   .banner {
     padding: 12px 24px;
   }
@@ -431,30 +445,33 @@
   .nav {
     display: none;
   }
-  
+
   .social {
     display: none;
   }
-  
+
   .bannerContent {
     flex-direction: column;
     gap: 12px;
   }
-  
+
   .bannerButtons {
     flex-direction: column;
     gap: 8px;
   }
-  
+
   .progressSection {
     flex-direction: column;
     gap: 8px;
     align-items: flex-start;
   }
-  
+
   .metrics {
     flex-direction: column;
     gap: 8px;
+  }
+  .successBox {
+    width: 70%;
   }
 }
 
@@ -465,7 +482,7 @@
     gap: 12px;
     align-items: flex-start;
   }
-  
+
   .header {
     padding: 0 16px;
     height: auto;
@@ -473,41 +490,47 @@
     flex-wrap: wrap;
     gap: 16px;
   }
-  
+
   .banner {
     padding: 12px 16px;
   }
-  
+
   .bannerText {
     font-size: 14px;
   }
-  
+
   .brandName {
     font-size: 18px;
   }
-  
+
   .tagline {
     font-size: 11px;
   }
-  
+
   .left {
     flex: 1;
     min-width: 200px;
   }
-  
+
   .right {
     flex: 1;
     justify-content: flex-end;
   }
-  
+
   .getStartedBtn {
     height: 40px;
     padding: 0 16px;
     font-size: 13px;
   }
-  
+
   .signInLink {
     font-size: 14px;
+  }
+}
+
+@media (min-width: 600px) {
+  .successBox {
+    width: 30%;
   }
 }
 
@@ -515,7 +538,7 @@
   .topBar {
     padding: 6px 12px;
   }
-  
+
   .header {
     padding: 0 12px;
     flex-direction: column;
@@ -523,57 +546,55 @@
     text-align: center;
     gap: 12px;
   }
-  
+
   .banner {
     padding: 8px 12px;
   }
-  
+
   .bannerText {
     font-size: 12px;
   }
-  
+
   .left {
     flex-direction: column;
     align-items: center;
     gap: 8px;
   }
-  
+
   .brandInfo {
     text-align: center;
   }
-  
+
   .brandName {
     font-size: 16px;
   }
-  
+
   .tagline {
     font-size: 10px;
   }
-  
+
   .right {
     flex-direction: column;
     gap: 8px;
     width: 100%;
   }
-  
+
   .getStartedBtn {
     width: 100%;
     height: 44px;
   }
-  
+
   .signInLink {
     font-size: 16px;
   }
-  
+
   .logoContainer {
     width: 60px;
     height: 60px;
   }
-  
+
   .logo {
     width: 52px;
     height: 52px;
   }
 }
-
-

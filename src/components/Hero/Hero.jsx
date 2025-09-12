@@ -13,7 +13,7 @@ const Hero = () => {
           <img
             src="/logo.png"
             alt="AiShopClone Logo"
-            style={{ width: '350px'}}
+            style={{ width: '60%'}}
           />
         </h1>
         <p className={styles.subtitle}>

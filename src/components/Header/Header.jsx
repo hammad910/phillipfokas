@@ -9,6 +9,7 @@ const Header = () => {
   const [isResultModalOpen, setIsResultModalOpen] = useState(false);
   const [uid, setUid] = useState("");
   const [userData, setUserData] = useState(null);
+  const [referralData, setreferralData] = useState(null);
 
   const handleSearchClick = () => {
     setIsSearchModalOpen(true);
@@ -22,6 +23,7 @@ const Header = () => {
   const handleCloseResultModal = () => {
     setIsResultModalOpen(false);
     setUserData(null);
+    setreferralData(null);
   };
 
   const handleSubmit = async (e) => {
@@ -33,7 +35,6 @@ const Header = () => {
     }
 
     try {
-      // 🔹 Call backend with UID
       const res = await fetch("http://localhost:8000/api/payment-track", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -46,10 +47,8 @@ const Header = () => {
 
       const data = await res.json();
 
-      // 🔹 Set state with response data
       setUserData(data);
 
-      // 🔹 Close search modal, open results modal
       setIsSearchModalOpen(false);
       setIsResultModalOpen(true);
       setUid(""); // reset UID
@@ -57,7 +56,30 @@ const Header = () => {
       console.error(error);
       alert("Something went wrong while fetching payment data.");
     }
+    try {
+      const res = await fetch("http://localhost:8000/api/referral-track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uid }), // send UID in request body
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to fetch referral data");
+      }
+
+      const refData = await res.json();
+
+      setreferralData(refData);
+
+      setIsSearchModalOpen(false);
+      setIsResultModalOpen(true);
+      setUid("");
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong while fetching payment data.");
+    }
   };
+  const id = localStorage.getItem("uid");
 
   return (
     <div className={styles.headerRoot}>
@@ -155,15 +177,23 @@ const Header = () => {
             <span className={styles.searchText}>Track Details</span>
           </button>
         </div>
-
-        <div className={styles.right}>
-          <Link to="/signup" className={styles.signInLink}>
-            Sign Up
-          </Link>
-          <Link to="/signin" className={styles.getStartedBtn}>
-            Get Started
-          </Link>
-        </div>
+        {!id? (
+          <div className={styles.right}>
+            <Link to="/signup" className={styles.signInLink}>
+              Sign Up
+            </Link>
+            <Link to="/signin" className={styles.getStartedBtn}>
+              Get Started
+            </Link>
+          </div>
+        ) : (
+          <div className={styles.successBox}>
+            <p>
+              Please <strong>save this key {id}</strong>. Share it with support for
+              verification or discounts.
+            </p>
+          </div>
+        )}
       </header>
 
       {/* Modal 1: Enter UID */}
@@ -210,8 +240,10 @@ const Header = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td>Elite Package</td>
-                  <td>$79</td>
+                  <td>
+                    {userData?.package_name ?? "User Not Purchased Any Package"}
+                  </td>
+                  <td>{userData?.pay_today ?? "$0"}</td>
                 </tr>
               </tbody>
             </table>
@@ -226,8 +258,8 @@ const Header = () => {
               </thead>
               <tbody>
                 <tr>
-                  <td>12</td>
-                  <td>8</td>
+                  <td>{referralData?.total_referred}</td>
+                  <td>{referralData?.total_joined_referred}</td>
                 </tr>
               </tbody>
             </table>
@@ -237,21 +269,30 @@ const Header = () => {
               <thead>
                 <tr>
                   <th>#</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Country</th>
                   <th>UID</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>#1231231</td>
-                </tr>
-                {/* Example of mapping dynamic referrals */}
-                {/* {userData.referrals.list.map((ref, idx) => (
-          <tr key={idx}>
-            <td>{idx + 1}</td>
-            <td>{ref.uid}</td>
-          </tr>
-        ))} */}
+                {referralData?.referrals?.length > 0 ? (
+                  referralData.referrals.map((user, index) => (
+                    <tr key={user.id}>
+                      <td>{index + 1}</td>
+                      <td>{user.name}</td>
+                      <td>{user.email}</td>
+                      <td>{user.country}</td>
+                      <td>{user.uid}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="5" style={{ textAlign: "center" }}>
+                      No referrals yet
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
 

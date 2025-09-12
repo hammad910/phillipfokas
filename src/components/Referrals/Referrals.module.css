@@ -1,12 +1,12 @@
 .sharesection {
   background-color: var(--color-bg);
-  padding: 80px 24px 120px;
+  padding: 60px 20px 100px;
   border-radius: 20px;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
-  border: 2px solid rgba(162, 113, 255, 0.35); /* purple accent with transparency */
-  box-shadow: 0 0 20px rgba(162, 113, 255, 0.15); /* subtle glow */
+  border: 2px solid rgba(162, 113, 255, 0.35);
+  box-shadow: 0 0 20px rgba(162, 113, 255, 0.15);
 }
 
 .shareheading {
@@ -25,7 +25,7 @@
 }
 
 .highlight {
-  color: #a271ff; /* project accent purple */
+  color: #a271ff;
   font-weight: 700;
 }
 
@@ -48,6 +48,9 @@
   color: #f5f5fa;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
+  flex: 1 1 auto;
+  min-width: 120px;
+  text-align: center;
 }
 
 .btn:hover {
@@ -55,19 +58,11 @@
   transform: scale(1.05);
 }
 
-/* Specific platform colors (subtle tint, not harsh brand colors) */
-.fb {
-  border-color: #1877f2;
-}
-.tw {
-  border-color: #1da1f2;
-}
-.li {
-  border-color: #0a66c2;
-}
-.wa {
-  border-color: #25d366;
-}
+/* Specific platform colors */
+.fb { border-color: #1877f2; }
+.tw { border-color: #1da1f2; }
+.li { border-color: #0a66c2; }
+.wa { border-color: #25d366; }
 
 /* Referral text */
 .referraltext {
@@ -86,13 +81,14 @@
 }
 
 .referralinput {
-  padding: 18px 22px; /* bigger padding for height */
+  padding: 16px 20px;
   border-radius: 34px;
-  border: 2px solid rgba(162, 113, 255, 0.5); /* purple accent border */
+  border: 2px solid rgba(162, 113, 255, 0.5);
   background: rgba(255, 255, 255, 0.02);
   color: #f5f5fa;
-  min-width: 340px; /* wider */
-  font-size: 16px; /* bigger text */
+  min-width: 280px;
+  font-size: 16px;
+  flex: 1;
 }
 
 .referralinput::placeholder {
@@ -101,7 +97,7 @@
 
 .referralinput:focus {
   outline: none;
-  border-color: #a271ff; /* solid purple focus */
+  border-color: #a271ff;
   box-shadow: 0 0 8px rgba(162, 113, 255, 0.6);
 }
 
@@ -109,11 +105,18 @@
   background: linear-gradient(90deg, #a271ff, #6b4dff);
   border: none;
   color: #fff;
-  padding: 16px 32px;
+  padding: 14px 28px;
   border-radius: 34px;
   font-weight: 700;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.btncode:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .btncode:hover {
@@ -121,15 +124,17 @@
 }
 
 .subheading {
-  font-size: 40px;
-  margin-top: 90px;
+  font-size: 34px;
+  margin-top: 70px;
 }
+
+/* Table */
 .table {
   width: 100%;
   max-width: 900px;
   margin: 0 auto 40px;
   border-collapse: collapse;
-  font-size: 17px; /* slightly larger */
+  font-size: 16px;
   color: #e5e5f0;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 16px;
@@ -137,52 +142,74 @@
   box-shadow: 0 0 16px rgba(162, 113, 255, 0.1);
 }
 
-/* Table headers */
 .table thead th {
   text-align: center;
   background: rgba(162, 113, 255, 0.15);
   color: #f5f5fa;
-  padding: 16px;
-  font-size: 18px;
+  padding: 14px;
+  font-size: 17px;
   font-weight: 700;
   border-bottom: 2px solid rgba(162, 113, 255, 0.3);
 }
 
-/* Table body cells */
 .table tbody td {
   text-align: center;
-  padding: 14px 16px;
+  padding: 12px 14px;
   border-bottom: 1px solid rgba(162, 113, 255, 0.15);
 }
 
-/* Alternating row background */
 .table tbody tr:nth-child(even) {
   background: rgba(162, 113, 255, 0.05);
 }
 
-/* Hover effect for rows */
 .table tbody tr:hover {
   background: rgba(162, 113, 255, 0.12);
   transition: background 0.3s ease;
 }
 
-/* Last row border cleanup */
 .table tbody tr:last-child td {
   border-bottom: none;
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+  .shareheading { font-size: 24px; }
+  .sharesubtext { font-size: 16px; }
+  .subheading { font-size: 28px; margin-top: 60px; }
+}
+
 @media (max-width: 768px) {
-  .shareheading {
-    font-size: 24px;
-  }
-  .sharesubtext {
-    font-size: 16px;
-  }
-  .btn,
-  .referralinput,
-  .btncode {
+  .sharesection { padding: 50px 16px 80px; }
+  .btn, .referralinput, .btncode {
     font-size: 14px;
-    padding: 12px 20px;
+    padding: 12px 18px;
+  }
+  .referralinput { min-width: 220px; }
+  .table { font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  .sharesection { padding: 40px 12px 60px; }
+  .shareheading { font-size: 20px; }
+  .sharesubtext { font-size: 14px; }
+  .referralinputwrap { flex-direction: column; align-items: stretch; }
+  .referralinput, .btncode { width: 100%; }
+  .table thead { display: none; }
+  .table, .table tbody, .table tr, .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr { margin-bottom: 16px; }
+  .table td {
+    text-align: right;
+    padding: 10px;
+    position: relative;
+  }
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: 600;
+    color: #aaa;
   }
 }
