@@ -1,10 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Header.module.css';
 import { FaInstagram } from "react-icons/fa6";
-import { FaFacebookF, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaTiktok, FaSearch } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+  const [isResultModalOpen, setIsResultModalOpen] = useState(false);
+  const [uid, setUid] = useState("");
+  const [userData, setUserData] = useState(null);
+
+  const handleSearchClick = () => {
+    setIsSearchModalOpen(true);
+  };
+
+  const handleCloseSearchModal = () => {
+    setIsSearchModalOpen(false);
+    setUid("");
+  };
+
+  const handleCloseResultModal = () => {
+    setIsResultModalOpen(false);
+    setUserData(null);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // 🔹 Example mock data (replace with API call using UID)
+    const mockData = {
+      payment: {
+        packageName: "Business Starter",
+        price: "$396",
+      },
+      referrals: {
+        totalReferred: 3,
+        joined: 2,
+        list: [
+          { uid: "UID-123456" },
+          { uid: "UID-654321" },
+        ],
+      },
+    };
+
+    // Set state with mock data
+    setUserData(mockData);
+
+    // Close search modal, open results
+    setIsSearchModalOpen(false);
+    setIsResultModalOpen(true);
+  };
+
   return (
     <div className={styles.headerRoot}>
       {/* Top Progress Bar */}
@@ -25,12 +71,12 @@ const Header = () => {
       {/* Promotional Banner */}
       <div className={styles.banner}>
         <div className={styles.bannerContent}>
-          <span className={styles.bannerText}>✨🚀 GOING LIVE AUG 31ST - 7 DAYS LEFT! ✨</span>
+          <span className={styles.bannerText}>✨🚀 GOING LIVE ON 28th SEPTEMBER ✨</span>
           <div className={styles.bannerButtons}>
             <div className={styles.timeButton}>
               <span className={styles.timeIcon}>🕐</span>
               <span className={styles.fireIcon}>🔥</span>
-              <span>ONLY 168H LEFT</span>
+              <span>ONLY FEW HOURS LEFT</span>
             </div>
             <div className={styles.joinButton}>
               <span className={styles.peopleIcon}>👥</span>
@@ -58,16 +104,21 @@ const Header = () => {
           <a href="#connect" className={styles.navLink}>Connect</a>
         </nav>
 
+        {/* Social + Search */}
         <div className={styles.social}>
-          <a href="https://www.facebook.com/AiShopClone?rdid=AsiDn4jAlkXczN1h&share_url=https%253A%252F%252Fwww.facebook.com%252Fshare%252F174wuyBoSF%252F#" target="_blank" className={styles.socialLink}>
+          <a href="https://www.facebook.com/AiShopClone..." target="_blank" className={styles.socialLink}>
             <span className={styles.facebookIcon}><FaFacebookF /></span>
           </a>
-          <a href="https://www.instagram.com/aishopclone/?igsh=aXl5anp1b3R2aWlm#" target="_blank" className={styles.socialLink}>
+          <a href="https://www.instagram.com/aishopclone..." target="_blank" className={styles.socialLink}>
             <span className={styles.instagramIcon}><FaInstagram /></span>
           </a>
-          <a href="http://tiktok.com/@aishopclone?_t=ZS-8z5vuOnSphX&_r=1" target="_blank" className={styles.socialLink}>
+          <a href="http://tiktok.com/@aishopclone..." target="_blank" className={styles.socialLink}>
             <span className={styles.tiktokIcon}><FaTiktok /></span>
           </a>
+          {/* Search Icon */}
+          <button onClick={handleSearchClick} className={styles.searchBtn}>
+            <FaSearch /> <span className={styles.searchText}>Track Details</span>
+          </button>
         </div>
 
         <div className={styles.right}>
@@ -75,10 +126,103 @@ const Header = () => {
           <Link to="/signin" className={styles.getStartedBtn}>Get Started</Link>
         </div>
       </header>
+
+      {/* Modal 1: Enter UID */}
+      {isSearchModalOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h2>Enter Customer UID</h2>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                value={uid}
+                onChange={(e) => setUid(e.target.value)}
+                placeholder="Enter UID"
+                className={styles.input}
+              />
+              <div className={styles.modalActions}>
+                <button type="submit" className={styles.submitBtn}>Search</button>
+                <button type="button" onClick={handleCloseSearchModal} className={styles.cancelBtn}>Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal 2: Results */}
+      {isResultModalOpen && userData && (
+        <div className={styles.modalOverlay}>
+  <div className={styles.modal}>
+    <h2>Payment Tracking</h2>
+    <table className={styles.table}>
+      <thead>
+        <tr>
+          <th>Package</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Elite Package</td>
+          <td>$79</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 style={{ marginTop: "20px" }}>Referral Tracking</h2>
+    <table className={styles.table}>
+      <thead>
+        <tr>
+          <th>Total Referred</th>
+          <th>Joined via Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12</td>
+          <td>8</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style={{ marginTop: "15px" }}>Referral UIDs</h3>
+    <table className={styles.table}>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>UID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>#1231231</td>
+        </tr>
+        {/* Example of mapping dynamic referrals */}
+        {/* {userData.referrals.list.map((ref, idx) => (
+          <tr key={idx}>
+            <td>{idx + 1}</td>
+            <td>{ref.uid}</td>
+          </tr>
+        ))} */}
+      </tbody>
+    </table>
+
+    <div className={styles.modalActions}>
+      <button
+        type="button"
+        onClick={handleCloseResultModal}
+        className={styles.cancelBtn}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+      )}
     </div>
   );
 };
 
 export default Header;
-
-

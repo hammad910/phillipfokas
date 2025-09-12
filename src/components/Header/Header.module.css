@@ -272,6 +272,147 @@
   box-shadow: 0 8px 25px rgba(162,113,255,0.3);
 }
 
+/* Search Button */
+.searchBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1b1822;
+  border: 1px solid rgba(162,113,255,0.25);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.searchBtn:hover {
+  border-color: rgba(162,113,255,0.5);
+  background: #1f1c2a;
+  color: #fff;
+}
+
+.searchText {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(19, 18, 25, 0.85); /* use --bg w/ opacity */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Modal Box */
+.modal {
+  background: #1b1822;
+  border: 1px solid rgba(162,113,255,0.25);
+  border-radius: 12px;
+  padding: 24px;
+  width: 320px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+.modal h2 {
+  margin-bottom: 16px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Input */
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(162,113,255,0.25);
+  border-radius: 8px;
+  background: #131219;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.input:focus {
+  border-color: var(--ring-start);
+  outline: none;
+}
+
+/* Modal Buttons */
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.submitBtn {
+  flex: 1;
+  background: linear-gradient(90deg, var(--ring-start), var(--ring-end));
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(162,113,255,0.4);
+}
+
+.cancelBtn {
+  flex: 1;
+  background: #2a1a3a;
+  border: 1px solid rgba(162,113,255,0.25);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 12px;
+}
+
+.cancelBtn:hover {
+  background: #1f1c2a;
+  color: #fff;
+}
+
+
+
 @media (max-width: 1200px) {
   .header {
     padding: 0 24px;

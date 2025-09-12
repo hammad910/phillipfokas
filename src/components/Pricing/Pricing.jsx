@@ -13,7 +13,7 @@ const plans = [
     features: [
       "1 Store Setup",
       "11 AI Store Templates",
-      "55 AI Requests (GPT-5 Nano)",
+      "100 AI Requests",
       "Essential Setup + Hosting",
       "Mobile Responsive Design",
       "Basic Analytics Dashboard",
@@ -54,7 +54,7 @@ const plans = [
     features: [
       "5 Stores Setup",
       "50 AI Store Templates",
-      "550 AI Requests",
+      "600 AI Requests",
       "Complete E-commerce Solution + Hosting",
       "Full Automated Viral Campaigns",
       "Real-time Market Intelligence",
@@ -65,6 +65,7 @@ const plans = [
   },
 ];
 
+
 const Pricing = () => {
   return (
     <section className={styles.section}>
@@ -73,7 +74,7 @@ const Pricing = () => {
           Early Adopter Pricing Plans
         </h2>
         <p className={styles.subheading}>
-          Pay only $65 today, complete payment on August 31st with massive
+          Pay only $79 today, complete payment on September 28th with massive
           discounts + holding deposit credit.
         </p>
         <div className={styles.grid}>
