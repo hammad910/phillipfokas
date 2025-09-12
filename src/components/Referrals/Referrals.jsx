@@ -15,7 +15,7 @@ const Referrals = () => {
     const uid = localStorage.getItem("uid");
 
     if (uid) {
-      fetch("https://phillipfokas.we-publish.com/referral-track", {
+      fetch("https://phillipfokas.we-publish.com/api/referral-track", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid }),
@@ -77,7 +77,7 @@ const Referrals = () => {
   const generateCode = async () => {
     if (!email || !email.includes("@")) return;
 
-    const baseUrl = "http://localhost:3000/";
+    const baseUrl = "https://phillipfokas-frontend.vercel.app/";
     const firstPart = email.split("@")[0];
     const randomNum = Math.floor(100 + Math.random() * 900);
     const code = `${baseUrl}?ref=${firstPart}${randomNum}`;
@@ -89,7 +89,7 @@ const Referrals = () => {
 
     try {
       const uid = localStorage.getItem("uid");
-      const res = await fetch("https://phillipfokas.we-publish.com/referral-store", {
+      const res = await fetch("https://phillipfokas.we-publish.com/api/referral-store", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ referral_code: refValue, uid }),
