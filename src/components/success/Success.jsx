@@ -1,8 +1,28 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import styles from "./Success.module.css";
 import { Link } from "react-router-dom";
 
-const success = () => {
+const Success = () => {
+  useEffect(() => {
+    const uid = localStorage.getItem("uid");
+    const selectedPlan = localStorage.getItem("selectedPlan"); // save plan id during checkout
+
+    if (uid && selectedPlan) {
+      fetch("http://localhost:8000/api/package-store", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          uid,
+          selectedPlan,
+        }),
+      }).catch((err) => {
+        console.error("API error:", err);
+      });
+    }
+  }, []);
+
   return (
     <div className={styles.successcontainer}>
       <div className={styles.successcard}>
@@ -19,4 +39,4 @@ const success = () => {
   );
 };
 
-export default success;
+export default Success;

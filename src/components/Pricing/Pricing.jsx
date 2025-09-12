@@ -4,6 +4,7 @@ import { handleCheckout } from "../../utils/checkout";
 
 const plans = [
   {
+    id: 1,
     name: "Business Starter",
     save: "Save $99.00 - 20% OFF",
     crossed: "$495.00",
@@ -24,6 +25,7 @@ const plans = [
     cta: "Reserve Now - $79",
   },
   {
+    id: 2,
     name: "Professional",
     featured: true,
     save: "Save $248.75 - 25% OFF",
@@ -45,6 +47,7 @@ const plans = [
     cta: "Reserve Now - $79",
   },
   {
+    id: 3,
     name: "Elite Entrepreneur",
     save: "Save $448.50 - 30% OFF",
     crossed: "$1,495.00",
@@ -99,7 +102,7 @@ const Pricing = () => {
                 ))}
               </ul>
               <a
-                onClick={handleCheckout}
+                onClick={() => handleCheckout(p.id)}
                 href="#reserve"
                 className={`${styles.cta} ${
                   p.featured ? styles.ctaPrimary : ""

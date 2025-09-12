@@ -1,12 +1,13 @@
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
-  "pk_live_51MjIzvBjOtgAcySF5YK79aWcftmYTmA2ETY8bJcaR9IPN5wCXdxlPLh67hJWWqtpuosSJ1jdIpJfdNhTyclD2GUm00EPKfwG4X"
+  "pk_test_51MjIzvBjOtgAcySF7jNhy2jSsj3qUcbmYORWhxt8VWYZV4l88y0iHkLcD4FD2YFoCwp1vCBeXRO8rICuEWE2kLE800WafhNyWE"
 );
 
-export const handleCheckout = async () => {
+export const handleCheckout = async (planId) => {
+  localStorage.setItem("selectedPlan", planId);
   try {
-    const res = await fetch("https://phillipfokas-backend.onrender.com/create-checkout-session", {
+    const res = await fetch("http://localhost:5000/create-checkout-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });
