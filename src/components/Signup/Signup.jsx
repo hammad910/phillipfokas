@@ -63,7 +63,7 @@ const Signup = () => {
         userPayload.referral_code = code;
       }
 
-      const userRes = await fetch("https://phillipfokas.we-publish.com/sign", {
+      const userRes = await fetch("https://phillipfokas.we-publish.com/api/sign", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
