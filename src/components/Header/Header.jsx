@@ -35,7 +35,7 @@ const Header = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:8000/api/payment-track", {
+      const res = await fetch("https://phillipfokas.we-publish.com/payment-track", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid }), // send UID in request body
@@ -57,7 +57,7 @@ const Header = () => {
       alert("Something went wrong while fetching payment data.");
     }
     try {
-      const res = await fetch("http://localhost:8000/api/referral-track", {
+      const res = await fetch("https://phillipfokas.we-publish.com/referral-track", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid }), // send UID in request body

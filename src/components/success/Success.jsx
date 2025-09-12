@@ -8,7 +8,7 @@ const Success = () => {
     const selectedPlan = localStorage.getItem("selectedPlan"); // save plan id during checkout
 
     if (uid && selectedPlan) {
-      fetch("http://localhost:8000/api/package-store", {
+      fetch("https://phillipfokas.we-publish.com/package-store", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

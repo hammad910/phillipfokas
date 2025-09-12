@@ -43,7 +43,7 @@ const Signup = () => {
         return id;
       };
       const customerId = generateRandomCustomerId();
-      const res = await fetch("http://localhost:5000/signup", {
+      const res = await fetch("https://phillipfokas-backend.onrender.com/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, UID: customerId }),
@@ -63,7 +63,7 @@ const Signup = () => {
         userPayload.referral_code = code;
       }
 
-      const userRes = await fetch("http://localhost:8000/api/sign", {
+      const userRes = await fetch("https://phillipfokas.we-publish.com/sign", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

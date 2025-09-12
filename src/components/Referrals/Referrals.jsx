@@ -3,22 +3,41 @@ import styles from "./Referrals.module.css";
 
 const Referrals = () => {
   const [hasUid, setHasUid] = useState(false);
+  const [email, setEmail] = useState("");
+  const [referralCode, setReferralCode] = useState("");
+  const [leaderboard, setLeaderboard] = useState([]);
 
-  useEffect(() => {
-    const uid = localStorage.getItem("uid");
-    if (uid) {
-      setHasUid(true);
-    }
-  }, []);
-  const shareUrl = "http://localhost:5000";
+  const shareUrl = "https://phillipfokas-backend.onrender.com";
   const shareText =
     "Transform your ideas into profitable online stores with AI! Get 50% OFF early adopter pricing - limited time! ";
 
-  const [email, setEmail] = useState("");
-  const [referralCode, setReferralCode] = useState("");
+  useEffect(() => {
+    const uid = localStorage.getItem("uid");
 
-  // share handlers
-  const shareOnFacebook = () => {
+    if (uid) {
+      fetch("https://phillipfokas.we-publish.com/referral-track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uid }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.referrals) {
+            // Map backend referrals into leaderboard format
+            const rows = data.referrals.map((ref) => ({
+              user: ref.uid,
+              tentative: 1, // ✅ your rule: 1 tentative point
+              confirmed: 0, // default 0 unless backend confirms
+            }));
+
+            setLeaderboard(rows);
+          }
+        })
+        .catch((err) => console.error("Error fetching referral track:", err));
+    }
+  }, []);
+  // Social share handlers
+  const shareOnFacebook = () =>
     window.open(
       `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
         shareUrl
@@ -26,9 +45,8 @@ const Referrals = () => {
       "_blank",
       "noopener,noreferrer"
     );
-  };
 
-  const shareOnTwitter = () => {
+  const shareOnTwitter = () =>
     window.open(
       `https://twitter.com/intent/tweet?url=${encodeURIComponent(
         shareUrl
@@ -36,9 +54,8 @@ const Referrals = () => {
       "_blank",
       "noopener,noreferrer"
     );
-  };
 
-  const shareOnLinkedIn = () => {
+  const shareOnLinkedIn = () =>
     window.open(
       `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
         shareUrl
@@ -46,9 +63,8 @@ const Referrals = () => {
       "_blank",
       "noopener,noreferrer"
     );
-  };
 
-  const shareOnWhatsApp = () => {
+  const shareOnWhatsApp = () =>
     window.open(
       `https://api.whatsapp.com/send?text=${encodeURIComponent(
         shareText + " " + shareUrl
@@ -56,27 +72,27 @@ const Referrals = () => {
       "_blank",
       "noopener,noreferrer"
     );
-  };
 
+  // ✅ Generate Referral Code
   const generateCode = async () => {
     if (!email || !email.includes("@")) return;
 
     const baseUrl = "http://localhost:3000/";
     const firstPart = email.split("@")[0];
     const randomNum = Math.floor(100 + Math.random() * 900);
-
     const code = `${baseUrl}?ref=${firstPart}${randomNum}`;
+
     setReferralCode(code);
 
     const url = new URL(code);
     const refValue = url.searchParams.get("ref");
 
     try {
-    const uid = localStorage.getItem("uid");
-      const res = await fetch("http://localhost:8000/api/referral-store", {
+      const uid = localStorage.getItem("uid");
+      const res = await fetch("https://phillipfokas.we-publish.com/referral-store", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ referral_code: refValue, uid: uid }),
+        body: JSON.stringify({ referral_code: refValue, uid }),
       });
 
       if (!res.ok) throw new Error("Failed to store referral code");
@@ -107,28 +123,16 @@ const Referrals = () => {
 
       {/* Share Buttons */}
       <div className={styles.sharebuttons}>
-        <button
-          onClick={shareOnFacebook}
-          className={`${styles.btn} ${styles.fb}`}
-        >
+        <button onClick={shareOnFacebook} className={`${styles.btn} ${styles.fb}`}>
           📺 Share on Facebook
         </button>
-        <button
-          onClick={shareOnTwitter}
-          className={`${styles.btn} ${styles.tw}`}
-        >
+        <button onClick={shareOnTwitter} className={`${styles.btn} ${styles.tw}`}>
           🐦 Share on Twitter
         </button>
-        <button
-          onClick={shareOnLinkedIn}
-          className={`${styles.btn} ${styles.li}`}
-        >
+        <button onClick={shareOnLinkedIn} className={`${styles.btn} ${styles.li}`}>
           💼 Share on LinkedIn
         </button>
-        <button
-          onClick={shareOnWhatsApp}
-          className={`${styles.btn} ${styles.wa}`}
-        >
+        <button onClick={shareOnWhatsApp} className={`${styles.btn} ${styles.wa}`}>
           📱 Share on WhatsApp
         </button>
       </div>
@@ -138,36 +142,28 @@ const Referrals = () => {
         Get Your Personal Referral Code &amp; Start Earning!
       </p>
       <div className={styles.referralinputwrap}>
-        {referralCode ? (
-          <>
-            <p className={styles.referraltext}>🎉 Your Referral Link:</p>
-            <input
-              type="text"
-              value={referralCode}
-              readOnly
-              className={styles.referrallink}
-            />
-          </>
-        ) : (
-          <>
-            <input
-              type="email"
-              placeholder={hasUid ? "Enter your email to get referral code" : 'You need to signup first for generating code'}
-              className={styles.referralinput}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button
-              disabled={!hasUid}
-              title={
-                !hasUid ? "You need to signup first for generating code" : ""
-              }
-              onClick={generateCode}
-              className={styles.btncode}
-            >
-              Get Code
-            </button>
-          </>
+        <input
+          type="text"
+          placeholder={
+            hasUid
+              ? "Enter your email to get referral code"
+              : "You need to signup first for generating code"
+          }
+          className={styles.referralinput}
+          value={referralCode || email}
+          readOnly={!!referralCode}
+          onChange={(e) => !referralCode && setEmail(e.target.value)}
+        />
+
+        {!referralCode && (
+          <button
+            disabled={!hasUid}
+            title={!hasUid ? "You need to signup first for generating code" : ""}
+            onClick={generateCode}
+            className={styles.btncode}
+          >
+            Get Code
+          </button>
         )}
       </div>
 
@@ -176,27 +172,25 @@ const Referrals = () => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>User</th>
+            <th>UID</th>
             <th>Points (Tentative)</th>
             <th>Confirmed</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>user1***@mail.com</td>
-            <td>5</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>user2***@mail.com</td>
-            <td>3</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>user3***@mail.com</td>
-            <td>2</td>
-            <td>0</td>
-          </tr>
+          {leaderboard.length > 0 ? (
+            leaderboard.map((row, idx) => (
+              <tr key={idx}>
+                <td>{row.user}</td>
+                <td>{row.tentative}</td>
+                <td>0</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="3">No referrals yet</td>
+            </tr>
+          )}
         </tbody>
       </table>
 
