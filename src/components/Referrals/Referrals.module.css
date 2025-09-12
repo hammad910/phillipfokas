@@ -120,6 +120,57 @@
   opacity: 0.85;
 }
 
+.subheading {
+  font-size: 40px;
+  margin-top: 90px;
+}
+.table {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  border-collapse: collapse;
+  font-size: 17px; /* slightly larger */
+  color: #e5e5f0;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 16px rgba(162, 113, 255, 0.1);
+}
+
+/* Table headers */
+.table thead th {
+  text-align: center;
+  background: rgba(162, 113, 255, 0.15);
+  color: #f5f5fa;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 2px solid rgba(162, 113, 255, 0.3);
+}
+
+/* Table body cells */
+.table tbody td {
+  text-align: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(162, 113, 255, 0.15);
+}
+
+/* Alternating row background */
+.table tbody tr:nth-child(even) {
+  background: rgba(162, 113, 255, 0.05);
+}
+
+/* Hover effect for rows */
+.table tbody tr:hover {
+  background: rgba(162, 113, 255, 0.12);
+  transition: background 0.3s ease;
+}
+
+/* Last row border cleanup */
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .shareheading {
