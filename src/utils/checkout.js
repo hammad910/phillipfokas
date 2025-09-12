@@ -1,7 +1,7 @@
 import { loadStripe } from "@stripe/stripe-js";
 
 const stripePromise = loadStripe(
-  "pk_test_51MjIzvBjOtgAcySF7jNhy2jSsj3qUcbmYORWhxt8VWYZV4l88y0iHkLcD4FD2YFoCwp1vCBeXRO8rICuEWE2kLE800WafhNyWE"
+  "pk_live_51MjIzvBjOtgAcySF5YK79aWcftmYTmA2ETY8bJcaR9IPN5wCXdxlPLh67hJWWqtpuosSJ1jdIpJfdNhTyclD2GUm00EPKfwG4X"
 );
 
 export const handleCheckout = async () => {
