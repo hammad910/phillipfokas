@@ -161,7 +161,7 @@ const Referrals = () => {
         <input
           type="text"
           placeholder={
-            hasUid
+            uid
               ? "Enter your email to get referral code"
               : "You need to signup first for generating code"
           }
