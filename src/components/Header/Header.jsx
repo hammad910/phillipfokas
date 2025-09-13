@@ -172,11 +172,11 @@ const Header = () => {
             </span>
           </a>
           {/* Search Icon */}
+        </div>
           <button onClick={handleSearchClick} className={styles.searchBtn}>
             <FaSearch />{" "}
             <span className={styles.searchText}>Track Details</span>
           </button>
-        </div>
         {!id? (
           <div className={styles.right}>
             <Link to="/signup" className={styles.signInLink}>
