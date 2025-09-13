@@ -10,6 +10,7 @@ const Referrals = () => {
   const shareUrl = "https://phillipfokas-backend.onrender.com";
   const shareText =
     "Transform your ideas into profitable online stores with AI! Get 50% OFF early adopter pricing - limited time! ";
+  const uid = localStorage.getItem("uid");
 
   useEffect(() => {
     const uid = localStorage.getItem("uid");
@@ -89,11 +90,14 @@ const Referrals = () => {
 
     try {
       const uid = localStorage.getItem("uid");
-      const res = await fetch("https://phillipfokas.we-publish.com/api/referral-store", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ referral_code: refValue, uid }),
-      });
+      const res = await fetch(
+        "https://phillipfokas.we-publish.com/api/referral-store",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ referral_code: refValue, uid }),
+        }
+      );
 
       if (!res.ok) throw new Error("Failed to store referral code");
     } catch (err) {
@@ -123,16 +127,28 @@ const Referrals = () => {
 
       {/* Share Buttons */}
       <div className={styles.sharebuttons}>
-        <button onClick={shareOnFacebook} className={`${styles.btn} ${styles.fb}`}>
+        <button
+          onClick={shareOnFacebook}
+          className={`${styles.btn} ${styles.fb}`}
+        >
           📺 Share on Facebook
         </button>
-        <button onClick={shareOnTwitter} className={`${styles.btn} ${styles.tw}`}>
+        <button
+          onClick={shareOnTwitter}
+          className={`${styles.btn} ${styles.tw}`}
+        >
           🐦 Share on Twitter
         </button>
-        <button onClick={shareOnLinkedIn} className={`${styles.btn} ${styles.li}`}>
+        <button
+          onClick={shareOnLinkedIn}
+          className={`${styles.btn} ${styles.li}`}
+        >
           💼 Share on LinkedIn
         </button>
-        <button onClick={shareOnWhatsApp} className={`${styles.btn} ${styles.wa}`}>
+        <button
+          onClick={shareOnWhatsApp}
+          className={`${styles.btn} ${styles.wa}`}
+        >
           📱 Share on WhatsApp
         </button>
       </div>
@@ -157,8 +173,10 @@ const Referrals = () => {
 
         {!referralCode && (
           <button
-            disabled={!hasUid}
-            title={!hasUid ? "You need to signup first for generating code" : ""}
+            disabled={!uid}
+            title={
+              !uid ? "You need to signup first for generating code" : ""
+            }
             onClick={generateCode}
             className={styles.btncode}
           >
